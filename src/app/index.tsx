@@ -14,54 +14,58 @@ const Index = (): JSX.Element => {
       {/* 清单 */}
       <View>
         {/* MemoItem */}
-        <View>
+        <View style={styles.memoListItem}>
           <View>
-            <Text>购物清单</Text>
-            <Text>2025年8月5日</Text>
+            <Text style={styles.memoListItemTitle}>购物清单</Text>
+            <Text style={styles.memoListItemDate}>2025年8月5日</Text>
           </View>
 
           <View>
             <Text>X</Text>
           </View>
         </View>
+
         {/* MemoItem */}
-        <View>
+        <View style={styles.memoListItem}>
           <View>
-            <Text>购物清单</Text>
-            <Text>2025年8月5日</Text>
+            <Text style={styles.memoListItemTitle}>购物清单</Text>
+            <Text style={styles.memoListItemDate}>2025年8月5日</Text>
           </View>
 
           <View>
             <Text>X</Text>
           </View>
         </View>
+
         {/* MemoItem */}
-        <View>
+        <View style={styles.memoListItem}>
           <View>
-            <Text>购物清单</Text>
-            <Text>2025年8月5日</Text>
+            <Text style={styles.memoListItemTitle}>购物清单</Text>
+            <Text style={styles.memoListItemDate}>2025年8月5日</Text>
           </View>
 
           <View>
             <Text>X</Text>
           </View>
         </View>
+
         {/* MemoItem */}
-        <View>
+        <View style={styles.memoListItem}>
           <View>
-            <Text>购物清单</Text>
-            <Text>2025年8月5日</Text>
+            <Text style={styles.memoListItemTitle}>购物清单</Text>
+            <Text style={styles.memoListItemDate}>2025年8月5日</Text>
           </View>
 
           <View>
             <Text>X</Text>
           </View>
         </View>
+
         {/* MemoItem */}
-        <View>
+        <View style={styles.memoListItem}>
           <View>
-            <Text>购物清单</Text>
-            <Text>2025年8月5日</Text>
+            <Text style={styles.memoListItemTitle}>购物清单</Text>
+            <Text style={styles.memoListItemDate}>2025年8月5日</Text>
           </View>
 
           <View>
@@ -79,6 +83,7 @@ const Index = (): JSX.Element => {
 };
 
 const styles = StyleSheet.create({
+  //container
   container: {
     flex: 1,
     //↑用于扩张
@@ -87,6 +92,7 @@ const styles = StyleSheet.create({
     // alignItems: "center",
     backgroundColor: "#ffffff",
   },
+  //header
   header: {
     backgroundColor: "#467FD3",
     height: 104,
@@ -99,14 +105,36 @@ const styles = StyleSheet.create({
     position: "absolute",
     right: 16,
     bottom: 16,
-    color:'rgba(255,255,255,0.7)'
+    color: "rgba(255,255,255,0.7)",
   },
   headerTitle: {
     marginBottom: 8,
     fontSize: 22,
     lineHeight: 32,
     fontWeight: "bold",
-    color:'#ffffff'
+    color: "#ffffff",
+  },
+  // memolist
+  memoListItem: {
+    backgroundColor: "#ffffff",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingVertical: 16,
+    //竖
+    paddingHorizontal: 19,
+    //横
+    alignItems: "center",
+    borderBottomWidth:1,
+    borderColor:'rgba(0,0,0,0.15)'
+  },
+  memoListItemTitle: {
+    fontSize: 16,
+    lineHeight: 32,
+  },
+  memoListItemDate: {
+    fontSize: 12,
+    lineHeight: 16,
+    color: "#848484",
   },
 });
 

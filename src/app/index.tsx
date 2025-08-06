@@ -1,41 +1,8 @@
+import { Redirect } from "expo-router";
 import { JSX } from "react";
-import { View, StyleSheet } from "react-native";
-
-//导入组件
-import Header from "../components/Header";
-import MemoListItem from "../components/MemoListItem";
-import CircleButton from "../components/CircleButton";
 
 const Index = (): JSX.Element => {
-  return (
-    <View style={styles.container}>
-      {/* 标题 */}
-      <Header />
-
-      {/* 清单 */}
-      <View>
-        <MemoListItem />
-        <MemoListItem />
-        <MemoListItem />
-        <MemoListItem />
-        <MemoListItem />
-      </View>
-
-      {/* 加号 */}
-      <CircleButton>+</CircleButton>
-    </View>
-  );
+  return <Redirect href={"memo/List"} />;
 };
-
-const styles = StyleSheet.create({
-  //container
-  container: {
-    flex: 1,
-    //↑用于扩张
-    // justifyContent: "center",
-    // alignItems: "center",
-    backgroundColor: "#ffffff",
-  },
-});
 
 export default Index;

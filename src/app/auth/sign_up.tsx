@@ -4,21 +4,21 @@ import { View, Text, TextInput, StyleSheet } from "react-native";
 import Header from "../../components/Header";
 import Button from "../../components/Button";
 
-const LogIn = (): JSX.Element => {
+const SignUp = (): JSX.Element => {
   return (
     <View style={styles.container}>
       <Header />
 
       <View style={styles.inner}>
-        <Text style={styles.title}>登录</Text>
+        <Text style={styles.title}>注册</Text>
         <TextInput style={styles.input} value="邮箱" />
         <TextInput style={styles.input} value="密码" />
 
         <Button label="提交" />
 
         <View style={styles.footer}>
-          <Text style={styles.footerText}>还没有账户?</Text>
-          <Text style={styles.footerLink}>点击注册</Text>
+          <Text style={styles.footerText}>已有账户?</Text>
+          <Text style={styles.footerLink}>点击登录</Text>
         </View>
       </View>
     </View>
@@ -64,4 +64,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LogIn;
+export default SignUp;

@@ -26,7 +26,7 @@ const List = (): JSX.Element => {
       {/* 加号 */}
       <CircleButton>
         {/* <Feather name='plus' size={40}/> */}
-        <Icon />
+        <Icon name="plus" size={40} color="#ffffff" />
       </CircleButton>
     </View>
   );

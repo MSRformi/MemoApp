@@ -2,7 +2,7 @@ import { Redirect } from "expo-router";
 import { JSX } from "react";
 
 const Index = (): JSX.Element => {
-  return <Redirect href={"memo/Edit"} />;
+  return <Redirect href={"memo/Create"} />;
 };
 
 export default Index;

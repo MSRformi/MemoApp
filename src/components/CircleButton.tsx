@@ -1,16 +1,16 @@
 import { JSX } from "react";
-import { View, Text, StyleSheet,type ViewStyle } from "react-native";
+import { View, Text, StyleSheet, type ViewStyle } from "react-native";
 
 interface Props {
-    children:JSX.Element
-    style?:ViewStyle
+  children: JSX.Element;
+  style?: ViewStyle;
 }
 
-const CircleButton = (props:Props): JSX.Element => {
-    const {children,style} = props
+const CircleButton = (props: Props): JSX.Element => {
+  const { children, style } = props;
   return (
     // {/* 加号 */}
-    <View style={[styles.circleButton,style]}>
+    <View style={[styles.circleButton, style]}>
       {/* ↑以上格式,后者会覆盖前者的设定 */}
       <Text style={styles.circleButtonLabel}>{children}</Text>
     </View>
@@ -30,10 +30,10 @@ const styles = StyleSheet.create({
     bottom: 40,
 
     // IOS适用的属性↓
-    // shadowColor:'#000000',
-    // shadowOpacity:0.25,
-    // shadowRadius:8,
-    // shadowOffset:{width:0,height:8}
+    shadowColor: "#000000",
+    shadowOpacity: 0.25,
+    shadowRadius: 8,
+    shadowOffset: { width: 0, height: 8 },
 
     // 安卓适用的↓
     elevation: 8,

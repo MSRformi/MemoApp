@@ -1,10 +1,12 @@
 import { JSX } from "react";
 import { View, StyleSheet } from "react-native";
+import { Feather } from "@expo/vector-icons";
 
 //导入组件
 import Header from "../../components/Header";
 import MemoListItem from "../../components/MemoListItem";
 import CircleButton from "../../components/CircleButton";
+
 
 const List = (): JSX.Element => {
   return (
@@ -22,7 +24,7 @@ const List = (): JSX.Element => {
       </View>
 
       {/* 加号 */}
-      <CircleButton>+</CircleButton>
+      <CircleButton><Feather name='plus' size={40}/></CircleButton>
     </View>
   );
 };

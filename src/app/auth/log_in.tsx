@@ -1,5 +1,11 @@
 import { JSX } from "react";
-import { View, Text, TextInput, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
 
 import Header from "../../components/Header";
 import Button from "../../components/Button";
@@ -18,7 +24,9 @@ const LogIn = (): JSX.Element => {
 
         <View style={styles.footer}>
           <Text style={styles.footerText}>还没有账户?</Text>
-          <Text style={styles.footerLink}>点击注册</Text>
+          <TouchableOpacity>
+            <Text style={styles.footerLink}>点击注册</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </View>

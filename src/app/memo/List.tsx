@@ -4,7 +4,7 @@ import { Feather } from "@expo/vector-icons";
 import { router } from "expo-router";
 
 //导入组件
-import Header from "../../components/Header";
+// import Header from "../../components/Header";
 import MemoListItem from "../../components/MemoListItem";
 import CircleButton from "../../components/CircleButton";
 import Icon from "../../components/Icon";
@@ -17,7 +17,7 @@ const List = (): JSX.Element => {
   return (
     <View style={styles.container}>
       {/* 标题 */}
-      <Header />
+      {/* <Header /> */}
 
       {/* 清单 */}
       <View>

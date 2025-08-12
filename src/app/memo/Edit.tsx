@@ -7,7 +7,7 @@ import {
 } from "react-native";
 import { router } from "expo-router";
 
-import Header from "../../components/Header";
+// import Header from "../../components/Header";
 import CircleButton from "../../components/CircleButton";
 import Icon from "../../components/Icon";
 
@@ -19,7 +19,7 @@ const Edit = (): JSX.Element => {
   return (
     <KeyboardAvoidingView behavior="height" style={styles.container}>
       {/* 标题 */}
-      <Header />
+      {/* <Header /> */}
 
       {/* 正文输入 */}
       <View style={styles.inputContainer}>

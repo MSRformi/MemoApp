@@ -13,7 +13,7 @@ import Button from "../../components/Button";
 
 const handlePress = (): void => {
   //登录
-  router.push('/memo/List')
+  router.replace('/memo/List')
 };
 
 const LogIn = (): JSX.Element => {

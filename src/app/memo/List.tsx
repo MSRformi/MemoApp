@@ -1,7 +1,7 @@
 import { JSX } from "react";
-import { View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet } from "react-native";
 import { Feather } from "@expo/vector-icons";
-import { router } from "expo-router";
+import { router, useNavigation } from "expo-router";
 
 //导入组件
 // import Header from "../../components/Header";
@@ -14,6 +14,12 @@ const handlePress = (): void => {
 };
 
 const List = (): JSX.Element => {
+  const navigation = useNavigation();
+  navigation.setOptions({
+    headerRight: () => {
+      return <Text>Test</Text>;
+    },
+  });
   return (
     <View style={styles.container}>
       {/* 标题 */}

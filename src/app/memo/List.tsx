@@ -1,13 +1,15 @@
 import { JSX } from "react";
-import { Text, View, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { router, useNavigation } from "expo-router";
+import { useEffect } from "react";
 
 //导入组件
 // import Header from "../../components/Header";
 import MemoListItem from "../../components/MemoListItem";
 import CircleButton from "../../components/CircleButton";
 import Icon from "../../components/Icon";
+import LogOutButton from "../../components/LogOut";
 
 const handlePress = (): void => {
   router.push("memo/Create");
@@ -15,11 +17,15 @@ const handlePress = (): void => {
 
 const List = (): JSX.Element => {
   const navigation = useNavigation();
-  navigation.setOptions({
-    headerRight: () => {
-      return <Text>Test</Text>;
-    },
-  });
+  useEffect(() => {
+    navigation.setOptions({
+      headerRight: () => {
+        return <LogOutButton />;
+      },
+    });
+  }, []);
+  //后面的[]中输入参数的话,useEffect会随着参数变化而执行,如果为空,则只会运行组件时执行一次
+
   return (
     <View style={styles.container}>
       {/* 标题 */}

@@ -1,4 +1,4 @@
-import { JSX } from "react";
+import { JSX, useState } from "react";
 import {
   View,
   Text,
@@ -6,24 +6,37 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from "react-native";
-
-import { Link,router } from "expo-router";
+import { Link, router } from "expo-router";
 
 import Button from "../../components/Button";
 
 const handlePress = (): void => {
   //登录
-  router.replace('/memo/List')
+  router.replace("/memo/List");
 };
 
 const LogIn = (): JSX.Element => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   return (
     <View style={styles.container}>
-
       <View style={styles.inner}>
         <Text style={styles.title}>登录</Text>
-        <TextInput style={styles.input} value="邮箱" />
-        <TextInput style={styles.input} value="密码" />
+        <TextInput
+          style={styles.input}
+          value={email}
+          onChangeText={(text) => {
+            setEmail(text);
+          }}
+        />
+
+        <TextInput
+          style={styles.input}
+          value={password}
+          onChangeText={(text) => {
+            setPassword(text);
+          }}
+        />
 
         <Button label="提交" onPress={handlePress} />
 

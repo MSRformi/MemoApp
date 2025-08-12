@@ -22,12 +22,17 @@ const LogIn = (): JSX.Element => {
     <View style={styles.container}>
       <View style={styles.inner}>
         <Text style={styles.title}>登录</Text>
+        
         <TextInput
           style={styles.input}
           value={email}
           onChangeText={(text) => {
             setEmail(text);
           }}
+          autoCapitalize="none"
+          keyboardType="email-address"
+          placeholder="Email Address"
+          textContentType="emailAddress"
         />
 
         <TextInput
@@ -36,6 +41,10 @@ const LogIn = (): JSX.Element => {
           onChangeText={(text) => {
             setPassword(text);
           }}
+          autoCapitalize="none"
+          secureTextEntry
+          placeholder="Password"
+          textContentType="password"
         />
 
         <Button label="提交" onPress={handlePress} />

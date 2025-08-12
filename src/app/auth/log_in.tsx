@@ -7,10 +7,15 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-import { Link } from "expo-router";
+import { Link,router } from "expo-router";
 
 import Header from "../../components/Header";
 import Button from "../../components/Button";
+
+const handlePress = (): void => {
+  //登录
+  router.push('/memo/List')
+};
 
 const LogIn = (): JSX.Element => {
   return (
@@ -22,11 +27,11 @@ const LogIn = (): JSX.Element => {
         <TextInput style={styles.input} value="邮箱" />
         <TextInput style={styles.input} value="密码" />
 
-        <Button label="提交" />
+        <Button label="提交" onPress={handlePress} />
 
         <View style={styles.footer}>
           <Text style={styles.footerText}>还没有账户?</Text>
-          <Link href='/auth/sign_up' asChild>
+          <Link href="/auth/sign_up" asChild>
             <TouchableOpacity>
               <Text style={styles.footerLink}>点击注册</Text>
             </TouchableOpacity>

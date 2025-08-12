@@ -1,12 +1,17 @@
 import { JSX } from "react";
 import { View, StyleSheet } from "react-native";
 import { Feather } from "@expo/vector-icons";
+import { router } from "expo-router";
 
 //导入组件
 import Header from "../../components/Header";
 import MemoListItem from "../../components/MemoListItem";
 import CircleButton from "../../components/CircleButton";
 import Icon from "../../components/Icon";
+
+const handlePress = (): void => {
+  router.push("memo/Create");
+};
 
 const List = (): JSX.Element => {
   return (
@@ -24,7 +29,7 @@ const List = (): JSX.Element => {
       </View>
 
       {/* 加号 */}
-      <CircleButton>
+      <CircleButton onPress={handlePress}>
         {/* <Feather name='plus' size={40}/> */}
         <Icon name="plus" size={40} color="#ffffff" />
       </CircleButton>

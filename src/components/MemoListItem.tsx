@@ -1,21 +1,23 @@
 import { JSX } from "react";
-import { View, Text, StyleSheet,TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { Link } from "expo-router";
 
 import Icon from "./Icon";
 
-const MemoListItem = ():JSX.Element=> {
+const MemoListItem = (): JSX.Element => {
   return (
-    //MemoItem
-    <View style={styles.memoListItem}>
-      <View>
-        <Text style={styles.memoListItemTitle}>购物清单</Text>
-        <Text style={styles.memoListItemDate}>2025年8月5日</Text>
-      </View>
-
-      <TouchableOpacity>
-        <Icon name='delete' size={32} color="#B0B0B0"/>
+    <Link href="/memo/Detail" asChild>
+      {/* MemoItem */}
+      <TouchableOpacity style={styles.memoListItem}>
+        <View>
+          <Text style={styles.memoListItemTitle}>购物清单</Text>
+          <Text style={styles.memoListItemDate}>2025年8月5日</Text>
+        </View>
+        <TouchableOpacity>
+          <Icon name="delete" size={32} color="#B0B0B0" />
+        </TouchableOpacity>
       </TouchableOpacity>
-    </View>
+    </Link>
   );
 };
 
@@ -42,6 +44,6 @@ const styles = StyleSheet.create({
     lineHeight: 16,
     color: "#848484",
   },
-})
+});
 
-export default MemoListItem
+export default MemoListItem;

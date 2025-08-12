@@ -1,16 +1,22 @@
 import { JSX } from "react";
-import { Text, StyleSheet, type ViewStyle,TouchableOpacity } from "react-native";
+import {
+  Text,
+  StyleSheet,
+  type ViewStyle,
+  TouchableOpacity,
+} from "react-native";
 
 interface Props {
   children: JSX.Element;
   style?: ViewStyle;
+  onPress?: () => void;
 }
 
 const CircleButton = (props: Props): JSX.Element => {
-  const { children, style } = props;
+  const { children, style, onPress } = props;
   return (
     // {/* 加号 */}
-    <TouchableOpacity style={[styles.circleButton, style]}>
+    <TouchableOpacity onPress={onPress} style={[styles.circleButton, style]}>
       {/* ↑以上格式,后者会覆盖前者的设定 */}
       <Text style={styles.circleButtonLabel}>{children}</Text>
     </TouchableOpacity>

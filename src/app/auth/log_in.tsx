@@ -5,14 +5,26 @@ import {
   TextInput,
   StyleSheet,
   TouchableOpacity,
+  Alert,
 } from "react-native";
 import { Link, router } from "expo-router";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../config";
 
 import Button from "../../components/Button";
 
-const handlePress = (): void => {
+const handlePress = (email: string, password: string): void => {
   //登录
-  router.replace("/memo/List");
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      console.log(userCredential.user.uid);
+      router.replace("/memo/List");
+    })
+    .catch((error) => {
+      const { code, message } = error;
+      console.log(code,message);
+      Alert.alert(message)
+    });
 };
 
 const LogIn = (): JSX.Element => {
@@ -22,7 +34,7 @@ const LogIn = (): JSX.Element => {
     <View style={styles.container}>
       <View style={styles.inner}>
         <Text style={styles.title}>登录</Text>
-        
+
         <TextInput
           style={styles.input}
           value={email}
@@ -47,11 +59,16 @@ const LogIn = (): JSX.Element => {
           textContentType="password"
         />
 
-        <Button label="提交" onPress={handlePress} />
+        <Button
+          label="提交"
+          onPress={() => {
+            handlePress(email, password);
+          }}
+        />
 
         <View style={styles.footer}>
           <Text style={styles.footerText}>还没有账户?</Text>
-          <Link href="/auth/sign_up" asChild>
+          <Link href="/auth/sign_up" asChild replace>
             <TouchableOpacity>
               <Text style={styles.footerLink}>点击注册</Text>
             </TouchableOpacity>

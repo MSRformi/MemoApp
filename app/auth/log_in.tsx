@@ -9,9 +9,9 @@ import {
 } from "react-native";
 import { Link, router } from "expo-router";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../config";
+import { auth } from "../../src/config";
 
-import Button from "../../components/Button";
+import Button from "../../src/components/Button";
 
 const handlePress = (email: string, password: string): void => {
   //登录

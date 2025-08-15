@@ -9,10 +9,10 @@ import {
 } from "react-native";
 
 import { Link, router } from "expo-router";
-import { auth } from "../../config";
+import { auth } from "../../src/config";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
-import Button from "../../components/Button";
+import Button from "../../src/components/Button";
 
 const handlePress = (email: string, password: string): void => {
   //注册

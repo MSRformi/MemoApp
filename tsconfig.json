@@ -3,5 +3,9 @@
   "compilerOptions": {
     "strict": true,
     "jsx": "react-native",
-  }
+    "paths": {
+      "@firebase/auth": ["./node_modules/@firebase/auth/dist/index.rn.d.ts"]
+    }
+  },
+  "include": ["app", "src", "index.tsx"]
 }

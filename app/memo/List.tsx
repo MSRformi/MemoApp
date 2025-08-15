@@ -6,10 +6,10 @@ import { useEffect } from "react";
 
 //导入组件
 // import Header from "../../components/Header";
-import MemoListItem from "../../components/MemoListItem";
-import CircleButton from "../../components/CircleButton";
-import Icon from "../../components/Icon";
-import LogOutButton from "../../components/LogOut";
+import MemoListItem from "../../src/components/MemoListItem";
+import CircleButton from "../../src/components/CircleButton";
+import Icon from "../../src/components/Icon";
+import LogOutButton from "../../src/components/LogOut";
 
 const handlePress = (): void => {
   router.push("memo/Create");

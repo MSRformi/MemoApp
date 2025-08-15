@@ -8,14 +8,14 @@ import {
 import { router } from "expo-router";
 
 // import Header from "../../components/Header";
-import CircleButton from "../../components/CircleButton";
-import Icon from "../../components/Icon";
+import CircleButton from "../../src/components/CircleButton";
+import Icon from "../../src/components/Icon";
 
 const handlePress = (): void => {
   router.back();
 };
 
-const Edit = (): JSX.Element => {
+const Create = (): JSX.Element => {
   return (
     <KeyboardAvoidingView behavior="height" style={styles.container}>
       {/* 标题 */}
@@ -23,7 +23,7 @@ const Edit = (): JSX.Element => {
 
       {/* 正文输入 */}
       <View style={styles.inputContainer}>
-        <TextInput value={"购物清单\n买东西"} multiline style={styles.input} />
+        <TextInput value="" multiline style={styles.input} />
       </View>
 
       {/* 按钮 */}
@@ -51,4 +51,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Edit;
+export default Create;

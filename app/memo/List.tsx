@@ -1,8 +1,9 @@
 import { JSX } from "react";
 import { View, StyleSheet } from "react-native";
-import { Feather } from "@expo/vector-icons";
 import { router, useNavigation } from "expo-router";
 import { useEffect } from "react";
+import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
+// import { Feather } from "@expo/vector-icons";
 
 //导入组件
 // import Header from "../../components/Header";
@@ -10,6 +11,7 @@ import MemoListItem from "../../src/components/MemoListItem";
 import CircleButton from "../../src/components/CircleButton";
 import Icon from "../../src/components/Icon";
 import LogOutButton from "../../src/components/LogOut";
+import { db, auth } from "../../src/config";
 
 const handlePress = (): void => {
   router.push("memo/Create");
@@ -26,6 +28,19 @@ const List = (): JSX.Element => {
   }, []);
   //后面的[]中输入参数的话,useEffect会随着参数变化而执行,如果为空,则只会运行组件时执行一次
 
+  useEffect(() => {
+    if (auth.currentUser === null) {
+      return;
+    }
+    const ref = collection(db, `users/${auth.currentUser.uid}/memos`);
+    const q = query(ref, orderBy("updatedAt", "desc"));
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      snapshot.forEach((doc) => {
+        console.log("memo", doc.data());
+      });
+    });
+    return unsubscribe;
+  }, []);
   return (
     <View style={styles.container}>
       {/* 标题 */}

@@ -2,8 +2,7 @@ import { JSX, useState } from "react";
 import {
   View,
   TextInput,
-  StyleSheet,
-  KeyboardAvoidingView,
+  StyleSheet
 } from "react-native";
 import { router } from "expo-router";
 import { collection, addDoc, Timestamp } from "firebase/firestore";
@@ -12,6 +11,7 @@ import { db, auth } from "../../src/config";
 // import Header from "../../components/Header";
 import CircleButton from "../../src/components/CircleButton";
 import Icon from "../../src/components/Icon";
+import KeyboardAvoidingView from '../../src/components/KeyboardAvoidingView'
 
 const handlePress = (bodyText: string): void => {
   if (auth.currentUser === null) {
@@ -41,7 +41,7 @@ const handlePress = (bodyText: string): void => {
 const Create = (): JSX.Element => {
   const [bodyText, setBodyText] = useState("");
   return (
-    <KeyboardAvoidingView behavior="height" style={styles.container}>
+    <KeyboardAvoidingView style={styles.container}>
       {/* 标题 */}
       {/* <Header /> */}
 
@@ -54,6 +54,7 @@ const Create = (): JSX.Element => {
           onChangeText={(text) => {
             setBodyText(text);
           }}
+          autoFocus
         />
       </View>
 

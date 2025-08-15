@@ -1,4 +1,4 @@
-import { JSX } from "react";
+import { JSX, useState } from "react";
 import {
   View,
   TextInput,
@@ -6,16 +6,21 @@ import {
   KeyboardAvoidingView,
 } from "react-native";
 import { router } from "expo-router";
-import { collection, addDoc } from "firebase/firestore";
-import { db } from "../../src/config";
+import { collection, addDoc, Timestamp } from "firebase/firestore";
+import { db, auth } from "../../src/config";
 
 // import Header from "../../components/Header";
 import CircleButton from "../../src/components/CircleButton";
 import Icon from "../../src/components/Icon";
 
-const handlePress = (): void => {
-  addDoc(collection(db, "memos"), {
-    bodyText: "test",
+const handlePress = (bodyText: string): void => {
+  if (auth.currentUser === null) {
+    return;
+  }
+  const ref = collection(db, `users/${auth.currentUser.uid}/memos`);
+  addDoc(ref, {
+    bodyText,
+    updatedAt: Timestamp.fromDate(new Date()),
   })
     .then((docRef) => {
       console.log("success", docRef.id);
@@ -34,6 +39,7 @@ const handlePress = (): void => {
 };
 
 const Create = (): JSX.Element => {
+  const [bodyText, setBodyText] = useState("");
   return (
     <KeyboardAvoidingView behavior="height" style={styles.container}>
       {/* 标题 */}
@@ -41,11 +47,22 @@ const Create = (): JSX.Element => {
 
       {/* 正文输入 */}
       <View style={styles.inputContainer}>
-        <TextInput value="" multiline style={styles.input} />
+        <TextInput
+          multiline
+          style={styles.input}
+          value={bodyText}
+          onChangeText={(text) => {
+            setBodyText(text);
+          }}
+        />
       </View>
 
       {/* 按钮 */}
-      <CircleButton onPress={handlePress}>
+      <CircleButton
+        onPress={() => {
+          handlePress(bodyText);
+        }}
+      >
         <Icon name="check" size={40} color="#ffffff" />
       </CircleButton>
     </KeyboardAvoidingView>
